@@ -8,20 +8,15 @@ const gulp = require('gulp'),
 const webpack = require("webpack-stream");
 const browsersync = require("browser-sync");
 
-const dist = "./dist/";
-
-gulp.task('include-script', function () {
-    return gulp.src('src/index.html')
-        .pipe(footer('<script src="script.js"></script>'))
-        .pipe(gulp.dest('dist'));
-});
+// const dist = "./dist/";
+const dist = "/Applications/MAMP/htdocs/window";
 
 gulp.task("copy-html", () => {
     return gulp.src("./src/index.html")
+        .pipe(footer('<script src="script.js"></script>'))
         .pipe(gulp.dest(dist))
         .pipe(browsersync.stream());
 });
-
 
 gulp.task("build-js", () => {
     return gulp.src("./src/js/main.js")
@@ -73,8 +68,7 @@ gulp.task("watch", () => {
     gulp.watch("./src/js/**/*.js", gulp.parallel("build-js"));
 });
 
-
-gulp.task("build", gulp.parallel("copy-html", "copy-assets", "build-js", "include-script"));
+gulp.task("build", gulp.parallel("copy-html", "copy-assets", "build-js"));
 
 gulp.task("build-prod-js", () => {
     return gulp.src("./src/js/main.js")
