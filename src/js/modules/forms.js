@@ -1,13 +1,11 @@
-const getForms = () => {
+import checkNumInputs from "./service/validation";
+
+const getForms = (state) => {
     const forms = document.querySelectorAll('form');
     const inputs = document.querySelectorAll('input');
-    const phoneInputs = document.querySelectorAll('input[name="user_phone"]');
 
-    phoneInputs.forEach(item => {
-        item.addEventListener('input', () => {
-            item.value = item.value.replace(/\D/, '');
-        });
-    });
+    checkNumInputs('input[name="user_phone"]');
+
     const msg = {
         success: 'Спасибо! Скоро мы свяжемся с вами.',
         loading: 'Загрузка...',
@@ -38,7 +36,13 @@ const getForms = () => {
             item.appendChild(statusMsg);
 
             const formData = new FormData(item);
+            if (item.getAttribute('data-calc') === 'end') {
+                for (let key in state) {
+                    formData.append(key, state[key]);
+                    state = {};
+                }
 
+            }
             postData('assets/server.php', formData)
                 .then(res => {
                     console.log(res);
