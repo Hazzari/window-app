@@ -1,5 +1,6 @@
 import './slider';
 import changeModalState from "./modules/changeModalState";
+import images from "./modules/images";
 import modals from './modules/modals';
 import tabs from "./modules/tabs";
 import getForms from './modules/forms';
@@ -13,6 +14,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     changeModalState(modalState);
 
+    images();
     modals();
     tabs(
         '.glazing_slider',
