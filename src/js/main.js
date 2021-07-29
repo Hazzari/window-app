@@ -3,11 +3,13 @@ import changeModalState from "./modules/changeModalState";
 import modals from './modules/modals';
 import tabs from "./modules/tabs";
 import getForms from './modules/forms';
+import timer from "./modules/timer";
 
 window.addEventListener('DOMContentLoaded', () => {
     "use strict";
 
     let modalState = {};
+    let deadline = '2021-08-11';
 
     changeModalState(modalState);
 
@@ -27,7 +29,7 @@ window.addEventListener('DOMContentLoaded', () => {
         'do_image_more',
         'inline-block');
     getForms(modalState);
-
+    timer('.container1', deadline);
 });
 
 

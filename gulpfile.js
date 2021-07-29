@@ -1,15 +1,13 @@
 "use strict";
 
 const gulp = require('gulp'),
-    rename = require('gulp-rename'),
-    minify = require('gulp-minify'),
     footer = require('gulp-footer');
 
 const webpack = require("webpack-stream");
 const browsersync = require("browser-sync");
 
-// const dist = "./dist/";
-const dist = "/Applications/MAMP/htdocs/window";
+const dist = "./dist/";
+// const dist = "/Applications/MAMP/htdocs/window";
 
 gulp.task("copy-html", () => {
     return gulp.src("./src/index.html")
