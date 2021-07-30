@@ -9,6 +9,9 @@ const images = () => {
     imgPopup.style.justifyContent = 'center';
     imgPopup.style.alignItems = 'center';
     imgPopup.style.display = 'none';
+    bigImage.style.width = 'auto';
+    bigImage.style.maxWidth = '70%';
+    bigImage.style.maxHeight = '70%';
 
     imgPopup.appendChild(bigImage);
 
@@ -21,12 +24,12 @@ const images = () => {
             imgPopup.style.display = 'flex';
             const path = target.parentNode.getAttribute('href');
             bigImage.setAttribute('src', path);
-            document.body.style.overflow = 'hidden';
+            document.body.classList.add('modal-open');
         }
 
         if (target && target.matches('div.popup') || target === bigImage) {
             imgPopup.style.display = 'none';
-            document.body.style.overflow = '';
+            document.body.classList.remove('modal-open');
         }
 
     });
