@@ -12,8 +12,8 @@
 - Галерея работ.
 
 Рабочий вариант можно посмотреть по адресу:
-[window.app](https://window-4ba9b.web.app/)
-
+<!-- [window.app](https://window-4ba9b.web.app/)
+ -->
 Установка всех зависимостей, запускать в папке проекта:
 ```shell
 npm i --save 
